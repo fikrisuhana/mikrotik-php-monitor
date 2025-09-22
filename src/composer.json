@@ -2,6 +2,12 @@
     "name": "mikrotik/monitor",
     "description": "MikroTik PPPoE Monitor",
     "type": "project",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/routeros/routerosapi"
+        }
+    ],
     "require": {
         "routeros/routerosapi": "^1.2"
     },
