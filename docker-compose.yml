@@ -14,8 +14,8 @@ services:
 
   php-fpm:
     build:
-      context: ./php-fpm
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: php-fpm/Dockerfile
     volumes:
       - ./src:/var/www/html
     depends_on:
