@@ -1,0 +1,13 @@
+{
+    "name": "mikrotik/monitor",
+    "description": "MikroTik PPPoE Monitor",
+    "type": "project",
+    "require": {
+        "routeros/routerosapi": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}

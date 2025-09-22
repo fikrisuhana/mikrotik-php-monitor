@@ -25,5 +25,6 @@ RUN docker-php-ext-install -j$(nproc) gd pdo_mysql mysqli zip bcmath gmp intl op
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Install RouterOS API client via Composer
-RUN composer require routeros/routerosapi
+# Copy composer.json and install dependencies
+COPY src/composer.json .
+RUN composer install --no-dev --optimize-autoloader
