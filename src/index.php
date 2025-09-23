@@ -17,7 +17,7 @@ $mikrotikUser = $_ENV['MIKROTIK_USER'] ?? 'admin';
 $mikrotikPass = $_ENV['MIKROTIK_PASS'] ?? '';
 $mikrotikPort = $_ENV['MIKROTIK_PORT'] ?? 8728;
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/evilfreelancer/routeros-api-php/routerosapi.php';
 
 $api = new RouterosAPI();
 $api->debug = false;
