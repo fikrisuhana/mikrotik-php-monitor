@@ -27,6 +27,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Clear Composer cache and install dependencies
 RUN composer clear-cache
+ENV COMPOSER_PROCESS_TIMEOUT=600
 COPY src/composer.json .
 RUN ping -c 3 google.com
 RUN composer install --no-dev --optimize-autoloader
