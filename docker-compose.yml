@@ -16,6 +16,9 @@ services:
     build:
       context: .
       dockerfile: php-fpm/Dockerfile
+    volumes:
+      - ./src:/var/www/html
+      - vendor_data:/var/www/html/vendor
     depends_on:
       - mysql
 
@@ -41,3 +44,4 @@ services:
 
 volumes:
   db_data:
+  vendor_data:
