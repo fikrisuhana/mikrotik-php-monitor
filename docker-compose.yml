@@ -16,8 +16,6 @@ services:
     build:
       context: .
       dockerfile: php-fpm/Dockerfile
-    volumes:
-      - ./src:/var/www/html
     depends_on:
       - mysql
 

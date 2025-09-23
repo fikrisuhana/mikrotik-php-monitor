@@ -31,3 +31,4 @@ ENV COMPOSER_PROCESS_TIMEOUT=600
 COPY src/composer.json .
 RUN ping -c 3 google.com
 RUN composer install --no-dev --optimize-autoloader
+COPY src/ .
