@@ -25,6 +25,7 @@ RUN docker-php-ext-install -j$(nproc) gd pdo_mysql mysqli zip bcmath gmp intl op
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copy composer.json and install dependencies
+# Clear Composer cache and install dependencies
+RUN composer clear-cache
 COPY src/composer.json .
 RUN composer install --no-dev --optimize-autoloader

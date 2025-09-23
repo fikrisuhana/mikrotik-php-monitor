@@ -2,6 +2,8 @@
     "name": "mikrotik/monitor",
     "description": "MikroTik PPPoE Monitor",
     "type": "project",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "peppe78/routeros-api-php": "^1.0"
     },
