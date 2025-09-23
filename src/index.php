@@ -18,12 +18,10 @@ $mikrotikPass = $_ENV['MIKROTIK_PASS'] ?? '';
 $mikrotikPort = $_ENV['MIKROTIK_PORT'] ?? 8728;
 
 require_once __DIR__ . '/vendor/autoload.php';
-use RouterOS\Client\RouterOSClient;
-use RouterOS\Query;
+use MikrotikAPI\MikrotikAPI;
 
-$api = new RouterOSClient($mikrotikHost, $mikrotikPort);
-$api->set  Username($mikrotikUser);
-$api->set  Password($mikrotikPass);
+$api = new MikrotikAPI($mikrotikHost, $mikrotikUser, $mikrotikPass, $mikrotikPort);
+$api->debug = false;
 
 $status = 'disconnected';
 $activeUsers = [];
@@ -31,10 +29,10 @@ $activeUsers = [];
 try {
     if ($api->connect()) {
         $status = 'connected';
-        $query = new Query('/ppp/active/print');
-        $query->where('disabled', 'false');
-        $query->proplist('name,address,caller-id');
-        $activeUsers = $api->query($query)->read();
+        $activeUsers = $api->comm("/ppp/active/print", array(
+            "?disabled" => "false",
+            "=.proplist" => "name,address,caller-id"
+        ));
     } else {
         $status = 'disconnected';
     }

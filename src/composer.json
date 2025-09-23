@@ -2,14 +2,8 @@
     "name": "mikrotik/monitor",
     "description": "MikroTik PPPoE Monitor",
     "type": "project",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/routeros/client-routeros"
-        }
-    ],
     "require": {
-        "routeros/client-routeros": "^1.0"
+        "mikrotik/mikrotik-api": "^1.0"
     },
     "autoload": {
         "psr-4": {
