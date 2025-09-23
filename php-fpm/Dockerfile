@@ -20,7 +20,7 @@ RUN apk add --no-cache \
     libpq
 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
-RUN docker-php-ext-install -j$(nproc) gd pdo_mysql mysqli zip bcmath gmp intl opcache xml
+RUN docker-php-ext-install -j$(nproc) gd pdo_mysql mysqli zip bcmath gmp intl opcache xml sockets
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
