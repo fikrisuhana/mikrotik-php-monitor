@@ -18,9 +18,8 @@ $mikrotikPass = $_ENV['MIKROTIK_PASS'] ?? '';
 $mikrotikPort = $_ENV['MIKROTIK_PORT'] ?? 8728;
 
 require_once __DIR__ . '/vendor/autoload.php';
-use RouterOSAPI;
 
-$api = new RouterOSAPI();
+$api = new RouterosAPI();
 $api->debug = false;
 
 $status = 'disconnected';
