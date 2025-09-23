@@ -3,7 +3,7 @@
     "description": "MikroTik PPPoE Monitor",
     "type": "project",
     "require": {
-        "routeros/client": "^1.0"
+        "routeros/client-routeros": "^1.0"
     },
     "autoload": {
         "psr-4": {
